@@ -30,8 +30,8 @@ A modern Django-based web application for managing coworking spaces, including d
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd co-work_connect
+git clone https://github.com/Solvit-Africa-Training-Center/didier_repo_learn.git
+cd didier_repo_learn
 ```
 
 ### 2. Set Up Virtual Environment
