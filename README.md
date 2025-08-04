@@ -1,4 +1,4 @@
-# Space Flow - Coworking Space Management System
+# Space Flow - Co-working Space Management System
 
 A modern Django-based web application for managing coworking spaces, including desk bookings, meeting room reservations, membership management, and office leasing.
 
