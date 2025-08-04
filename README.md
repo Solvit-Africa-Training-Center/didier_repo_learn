@@ -14,7 +14,7 @@ A modern Django-based web application for managing coworking spaces, including d
 ## 🛠️ Technology Stack
 
 - **Backend**: Django 5.2.4
-- **Database**: SQLite (development), PostgreSQL (production ready)
+- **Database**: SQLite (development)
 - **Frontend**: Tailwind CSS
 - **Python**: 3.12+
 - **Package Manager**: uv
