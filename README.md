@@ -15,7 +15,7 @@ A modern Django-based web application for managing coworking spaces, including d
 
 - **Backend**: Django 5.2.4
 - **Database**: SQLite (development), PostgreSQL (production ready)
-- **Frontend**: Tailwind CSS, Alpine.js
+- **Frontend**: Tailwind CSS
 - **Python**: 3.12+
 - **Package Manager**: uv
 
@@ -43,18 +43,14 @@ uv sync
 
 Or using pip:
 ```bash
-python -m venv .venv
+uv venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+uv add -r requirements.txt
 ```
 
 ### 3. Environment Configuration
 
 Create a `.env` file in the project root:
-
-```bash
-cp .env.example .env
-```
 
 Edit `.env` with your configuration:
 ```env
@@ -67,19 +63,19 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 ### 4. Database Setup
 
 ```bash
-python manage.py migrate
+uv run manage.py migrate
 ```
 
 ### 5. Create Superuser
 
 ```bash
-python manage.py createsuperuser
+uv run  manage.py createsuperuser
 ```
 
 ### 6. Run the Development Server
 
 ```bash
-python manage.py runserver
+uv run manage.py runserver
 ```
 
 Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) to access the application.
@@ -130,7 +126,6 @@ co-work_connect/
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `DEBUG` | Debug mode | `True` |
-| `SECRET_KEY` | Django secret key | Auto-generated |
 | `DATABASE_URL` | Database connection string | `sqlite:///db.sqlite3` |
 | `ALLOWED_HOSTS` | Allowed hostnames | `localhost,127.0.0.1` |
 
@@ -145,47 +140,6 @@ Key settings can be modified in `main_app/settings.py`:
 - Security settings
 
 
-
-## 🚀 Deployment
-
-### Production Checklist
-
-1. **Environment Variables**:
-   - Set `DEBUG=False`
-   - Configure production `SECRET_KEY`
-   - Set up production database
-   - Configure `ALLOWED_HOSTS`
-
-2. **Static Files**:
-   ```bash
-   python manage.py collectstatic
-   ```
-
-3. **Database**:
-   - Use PostgreSQL for production
-   - Run migrations
-   - Create production superuser
-
-4. **Security**:
-   - Enable HTTPS
-   - Configure CSRF settings
-   - Set secure cookie settings
-
-### Docker Deployment
-
-```dockerfile
-FROM python:3.12-slim
-
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-RUN python manage.py collectstatic --noinput
-
-EXPOSE 8000
-CMD ["gunicorn", "main_app.wsgi:application", "--bind", "0.0.0.0:8000"]
-```
 
 ## 🤝 Contributing
 
@@ -204,7 +158,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For support and questions:
 
 - Create an issue in the GitHub repository
-- Check the documentation in the `/docs` folder
 - Review the Django documentation for framework-specific questions
 
 ## 🔄 Version History
@@ -217,4 +170,3 @@ For support and questions:
 
 - Django community for the excellent framework
 - Tailwind CSS for the beautiful UI components
-- Alpine.js for the interactive frontend functionality
